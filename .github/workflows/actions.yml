@@ -1,4 +1,4 @@
-name: Hello World
+name: Environment Information
 
 on: push
 
@@ -8,3 +8,18 @@ jobs:
 
     steps:
       - run: echo "Hello from GitHub Actions"
+      - run: echo "Runner name ${{ runner.name }}"
+      - run: echo "Runner os ${{ runner.os }}"
+      - run: echo "Current date and time $(date)"
+      - run: echo "Current user ${{ github.actor }}"
+      - run: echo "Current repository ${{ github.repository }}"
+      - run: echo "Current repository owner ${{ github.repository_owner }}"
+      - run: echo "Current event ${{ github.event_name }}"
+      - run: |
+          echo "All environment variables:"
+          env
+      - run: df -h /
+      - run: free -h
+      - run: nproc
+      - run: node --version
+      - run: python3 --version
