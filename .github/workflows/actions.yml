@@ -1,25 +1,12 @@
-name: Environment Information
+name: Calculator Tests
 
 on: push
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hello from GitHub Actions"
-      - run: echo "Runner name ${{ runner.name }}"
-      - run: echo "Runner os ${{ runner.os }}"
-      - run: echo "Current date and time $(date)"
-      - run: echo "Current user ${{ github.actor }}"
-      - run: echo "Current repository ${{ github.repository }}"
-      - run: echo "Current repository owner ${{ github.repository_owner }}"
-      - run: echo "Current event ${{ github.event_name }}"
-      - run: |
-          echo "All environment variables:"
-          env
-      - run: df -h /
-      - run: free -h
-      - run: nproc
-      - run: node --version
-      - run: python3 --version
+      - uses: actions/checkout@v4
+
+      - run: node src/calculator.test.js
