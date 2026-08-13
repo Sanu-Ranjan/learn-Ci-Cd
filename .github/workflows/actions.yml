@@ -15,7 +15,8 @@ jobs:
       - name: ls command
         run: ls -la
 
-      - name: one run per step
-        run: |
-          cd src
-          pwd
+      - name: change dir
+        run: cd src
+
+      - name: where am i
+        run: pwd
