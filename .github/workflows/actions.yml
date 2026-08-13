@@ -1,12 +1,13 @@
-name: Calculator Tests
+name: step 1
 
 on: push
 
 jobs:
-  test:
+  explore:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: greet
+        run: echo "Hello World"
 
-      - run: node src/calculator.test.js
+      - name: ls command
+        run: ls -la
