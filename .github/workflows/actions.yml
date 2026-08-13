@@ -9,5 +9,8 @@ jobs:
       - name: greet
         run: echo "Hello World"
 
+      - name: prebuilt actions
+        uses: actions/checkout@v4
+
       - name: ls command
         run: ls -la
