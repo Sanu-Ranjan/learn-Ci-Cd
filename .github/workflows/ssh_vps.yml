@@ -1,0 +1,17 @@
+name: SSH to vps
+
+on: push
+
+jobs:
+  connect_VPS:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{secrets.VPS_HOST}}
+          username: ${{secrets.VPS_USER}}
+          key: ${{secrets.VPS_SSH_KEY}}
+          script: |
+            ls
+            pm2 list
