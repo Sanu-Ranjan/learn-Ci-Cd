@@ -1,0 +1,26 @@
+name: Practise
+
+on: push
+
+jobs:
+  checkout-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ckeck repo
+        uses: actions/checkout@v4
+
+      - name: use ls command
+        run: ls -la
+
+  ssh-vps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use apple boy to ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{secrets.VPS_HOST}}
+          username: ${{secrets.VPS_USER}}
+          key: ${{secrets.VPS_SSH_KEY}}
+          script: |
+            hostname
+            pwd
